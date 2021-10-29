@@ -3,9 +3,9 @@ import { format, parseISO } from 'date-fns';
 import renderToString from 'next-mdx-remote/render-to-string';
 import hydrate from 'next-mdx-remote/hydrate';
 
-import { getAllPosts } from '../../lib/blog';
+import { getAllPosts } from '../../lib/projects';
 
-export default function BlogPage({ title, date, content }) {
+export default function ProjectPage({ title, date, content }) {
   const hydratedContent = hydrate(content);
 
   return (
@@ -16,6 +16,7 @@ export default function BlogPage({ title, date, content }) {
       </Head>
 
       <main>
+        <h1>Projects</h1>
         <div className="border-b-2 border-gray-200 mb-4">
           <h2 className="text-3xl font-bold">{title}</h2>
           <div className="text-gray-600 text-md">

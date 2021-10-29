@@ -1,9 +1,9 @@
 import Head from 'next/head';
 import Link from 'next/link';
 import { format, parseISO } from 'date-fns';
-import { getAllPosts } from '../lib/blog';
+import { getAllPosts } from '../lib/projects';
 
-export default function Blog({ posts }) {
+export default function Projects({ posts }) {
   return (
     <div>
       <Head>
@@ -13,7 +13,7 @@ export default function Blog({ posts }) {
 
       <div className="space-y-4">
         {posts.map((item) => (
-          <BlogListItem key={item.slug} {...item} />
+          <ProjectsListItem key={item.slug} {...item} />
         ))}
       </div>
     </div>
@@ -34,11 +34,11 @@ export async function getStaticProps() {
   };
 }
 
-function BlogListItem({ slug, title, date, content }) {
+function ProjectsListItem({ slug, title, date, content }) {
   return (
     <div className="border border-gray-100 shadow hover:shadow-md hover:border-gray-200 rounded-md p-4 transition duration-200 ease-in">
       <div>
-        <Link href={`/blog/${slug}`}>
+        <Link href={`/projects/${slug}`}>
           <a className="font-bold">{title}</a>
         </Link>
       </div>
